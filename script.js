@@ -31,9 +31,10 @@ function appendTasks(tasks) {
 
 function displayTasks(tasks) {
   let ul = document.createElement('ul');
+  ul.setAttribute('class','task-ul');
   tasks.map((task, id) => {
     // console.log("task ", task);
-    ul.innerHTML += `<li class="task-li">${task} <button onclick="deleteTask(${id})" class="deleteTask">Delete</button> </li>`;
+    ul.innerHTML += `<li class="task-li">${task} <button onclick="editTask(${id})" class="editTask">Edit</button> <button onclick="deleteTask(${id})" class="deleteTask">Delete</button> </li>`;
   });
   return ul;
 }
@@ -61,3 +62,18 @@ document.querySelector('.searchTask').addEventListener('keyup',(e)=>{
   console.log(filteredTaksk);
   appendTasks(filteredTaksk);
 });
+
+function editTask(id){
+  const taskName = tasks[id];
+  console.log(taskName);
+  let li = document.querySelector(`.task-li`);
+  // const editTask= document.createElement('input');
+  // editTask.value = taskName;
+  li.innerHTML = null;
+  // const btn = document.createElement('button');
+  // btn.innerHTML = "Update";
+  const span = document.createElement('span');
+  span.innerHTML = `<input class="editTaks" value="${taskName}" /> <button onclick="updateTask(${id})">Update</button>`;
+  li.appendChild(span);
+  // li.appendChild(editTask + " " + btn);
+}
