@@ -32,7 +32,8 @@ function displayTasks(tasks) {
   let ul = document.createElement('ul');
   ul.setAttribute('class', 'task-ul');
   tasks.map((task, id) => {
-    ul.innerHTML += `<li class="task-li">${task} <button onclick="editTask(${id})" class="editTask">Edit</button> <button onclick="deleteTask(${id})" class="deleteTask">Delete</button> </li>`;
+    ul.innerHTML += `<li class="task-li">${task} <button onclick="editTask(${id})" class="editTask"><i class="fa-regular fa-pen-to-square"></i></button> <button onclick="deleteTask(${id})" class="deleteTask"><i class="fa-solid fa-xmark"></i></button> </li>`;
+    // ul.innerHTML += `<table> <tr class="task-li"> <td>${task}</td> <td> <button onclick="editTask(${id})" class="editTask">Edit</button> <button onclick="deleteTask(${id})" class="deleteTask">Delete</button>  </td> </tr> </table>`;
   });
   return ul;
 }
@@ -64,6 +65,7 @@ document.querySelector('.searchTask').addEventListener('keyup', (e) => {
 function editTask(id) {
   const taskName = tasks[id];
   let li = document.querySelector(`.task-ul`).children.item(id);
+  console.log(li);
   li.innerHTML = null;
   const span = document.createElement('span');
   span.innerHTML = `<input class="editedTask" value="${taskName}" /> <button onclick="updateTask(${id})">Update</button>`;
@@ -73,6 +75,6 @@ function editTask(id) {
 function updateTask(id) {
   let taskName = document.querySelector('.editedTask');
   tasks[id] = taskName.value;
-  localStorage.setItem('tasks',JSON.stringify(tasks));
+  localStorage.setItem('tasks', JSON.stringify(tasks));
   appendTasks(tasks);
 }
