@@ -40,7 +40,7 @@ function displayTasks(tasks) {
 function deleteTask(id) {
   const consent = confirm(`Do you want to delete this task`);
   if (consent) {
-    tasks.splice(id, 2);
+    tasks.splice(id, 1);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     appendTasks(tasks);
   }

@@ -17,7 +17,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid black; */
   padding: 10px;
   margin: 20px;
 }
@@ -37,15 +36,6 @@ input {
   height: 20px;
 }
 
-#task-list {
-  /* max-width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
-  margin: auto; */
-}
-
 ul {
   padding: 0;
 }
@@ -56,7 +46,6 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid black; */
   margin: 10px;
   padding: 10px;
 }
@@ -71,7 +60,7 @@ ul {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
-  column-gap: 16px;
+  column-gap: 160px;
 }
 
 .heading {
